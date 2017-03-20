@@ -11,11 +11,12 @@
     http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- base dataSource -->
-	<bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource" destroy-method="forceCloseAll">
-		<property name="driver" value="${jdbc.driverClassName}" />
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${db.master.url}" />
 		<property name="username" value="${db.master.user}" />
 		<property name="password" value="${db.master.password}" />
+		
 
 	</bean>
 

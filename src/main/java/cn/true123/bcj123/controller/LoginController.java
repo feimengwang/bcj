@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController extends BaseController {
 
-	@RequestMapping("/")
-	public String goIndex() {
-
-		return "index";
-	}
 
 	@RequestMapping("/login")
 	public String login() {
