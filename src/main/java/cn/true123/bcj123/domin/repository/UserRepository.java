@@ -1,10 +1,10 @@
-package cn.true123.bcj123.dao;
+package cn.true123.bcj123.domin.repository;
 
 import java.util.List;
 
 import cn.true123.bcj123.domin.User;
 
-public interface UserServiceDAO {
+public interface UserRepository {
 	public User findUserById(Integer id);
 
 	public User findUserByName(String name);

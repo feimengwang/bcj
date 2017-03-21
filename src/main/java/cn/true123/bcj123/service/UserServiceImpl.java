@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.true123.bcj123.dao.UserServiceDAO;
 import cn.true123.bcj123.domin.User;
+import cn.true123.bcj123.domin.repository.UserRepository;
 
 @Service(value="UserService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserServiceDAO userServiceDAO;
+	UserRepository userRepository;
 
 	public boolean login(User u) {
 		User dbUser = findUserByName(u.getName());
@@ -31,17 +31,17 @@ public class UserServiceImpl implements UserService {
 
 	public User findUserById(Integer id) {
 		// TODO Auto-generated method stub
-		return userServiceDAO.findUserById(id);
+		return userRepository.findUserById(id);
 	}
 
 	public List findAllUser() {
 		// TODO Auto-generated method stub
-		return userServiceDAO.findAllUser();
+		return userRepository.findAllUser();
 	}
 
 	public User findUserByName(String name) {
 		// TODO Auto-generated method stub
-		return userServiceDAO.findUserByName(name);
+		return userRepository.findUserByName(name);
 	}
 
 }

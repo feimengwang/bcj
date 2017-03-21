@@ -1,4 +1,4 @@
-package cn.true123.bcj123.dao;
+package cn.true123.bcj123.domin.repository;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import cn.true123.bcj123.domin.User;
 import cn.true123.bcj123.mapper.UserMapper;
 
 @Repository
-public class UserServiceDAOImpl implements UserServiceDAO {
+public class UserRepositoryImpl implements UserRepository {
 
 	@Autowired
 	UserMapper userMapper;
