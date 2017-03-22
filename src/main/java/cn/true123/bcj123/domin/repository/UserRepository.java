@@ -10,4 +10,5 @@ public interface UserRepository {
 	public User findUserByName(String name);
 
 	public List findAllUser();
+	public void insert(User user);
 }

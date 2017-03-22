@@ -8,4 +8,5 @@ public interface UserMapper {
 	public User selectUserById(Integer id);
 	public User selectUserByName(String name);
 	public List findAllUser();
+	public void insert(User user);
 }

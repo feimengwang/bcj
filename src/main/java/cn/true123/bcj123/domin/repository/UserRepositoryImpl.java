@@ -29,4 +29,8 @@ public class UserRepositoryImpl implements UserRepository {
 		return userMapper.findAllUser();
 	}
 
+	public void insert(User user) {
+		userMapper.insert(user);
+	}
+
 }

@@ -25,7 +25,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描Mapping.xml文件 -->
 		<property name="mapperLocations" value="classpath:/mapper/*.xml"></property>
-		<property name="configLocation" value="classpath:xml/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:/xml/mybatis-config.xml"></property>
 		<property name="typeAliasesPackage" value="cn.true123.bcj123.domin" />
 		
 	</bean>
@@ -45,4 +45,22 @@
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 	<!-- 事务管理 属性 -->
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="select*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="insert*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 配置切面 -->
+	<aop:config expose-proxy="true" proxy-target-class="true">
+		<aop:advisor advice-ref="transactionAdvice"
+			pointcut="execution(* cn.true123.bcj123.service..*.*(..))" />
+	</aop:config>
 </beans>

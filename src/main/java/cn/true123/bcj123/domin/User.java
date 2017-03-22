@@ -2,16 +2,31 @@ package cn.true123.bcj123.domin;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.apache.ibatis.type.Alias;
+import org.hibernate.validator.constraints.Email;
+
+@Alias("User")
 public class User implements Serializable {
 	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -2294403409345526624L;
 	private Integer id;
+	@NotNull
+	@Size(min=6,max=12,message="{name.size.from2.to8}")
 	private String name;
+	@NotNull
+	@Size(min=6,max=12,message="{password.size.from2.to8}")
 	private String password;
+	@NotNull
 	private String sex;
+	@NotNull
+	@Size(min=9,max=16)
 	private String telephone;
+	@Email(message="{emial.is.not.valid}")
 	private String email;
 
 	public User() {
@@ -21,6 +36,8 @@ public class User implements Serializable {
 	public User(Integer id, String name, String password, String sex, String telephone, String email) {
 		super();
 		this.id = id;
+		
+		
 		this.name = name;
 		this.password = password;
 		this.sex = sex;
